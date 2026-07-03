@@ -7,3 +7,4 @@ insert into Tweets (tweet_id, content) values ('2', 'More than fifteen chars are
 SELECT tweet_id
 FROM Tweets
 wHERE CHAR_LENGTH(content) > 15
+
