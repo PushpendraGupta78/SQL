@@ -1,0 +1,15 @@
+Create table If Not Exists Employees(employee_id int, name varchar(20), reports_to int, age int)
+Truncate table Employees
+insert into Employees (employee_id, name, reports_to, age) values ('9', 'Hercy', NULL, '43')
+insert into Employees (employee_id, name, reports_to, age) values ('6', 'Alice', '9', '41')
+insert into Employees (employee_id, name, reports_to, age) values ('4', 'Bob', '9', '36')
+insert into Employees (employee_id, name, reports_to, age) values ('2', 'Winston', NULL, '37')
+
+# Write your MySQL query statement below
+SELECT E1.employee_id, E1.name, count(E2.employee_id)AS reports_count , Round(AVG(E2.age)) AS average_age
+FROM Employees E1 
+INNER JOIN Employees E2
+ON E1.employee_id = E2.reports_to
+GROUP BY E1.employee_id, E1.name
+ORDER BY employee_id
+
